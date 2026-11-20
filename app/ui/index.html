@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПУЛЬС — контроль открытых линий</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/app.css?v=11">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4l2.5-6 3.5 12 3-8 2 2h5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-4.5A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8 10h8M8 14h5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c0-3.5 2.9-5.7 6.5-5.7s6.5 2.2 6.5 5.7"/><path d="M16.5 5.2a3.2 3.2 0 0 1 0 6.2M18 14.6c2.1.6 3.5 2.3 3.5 4.6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20.5 6.5 9.5 18 3.5 12"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.7 2.8L16.5 9"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.3 3h-4l-.3 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.3 2.5h4l.3-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.1-.4.1-.8.1-1.2Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 2.8 2.4 20h19.2L12 2.8Z"/><path d="M12 9v4.5M12 17.2h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.3 2"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2 4 14h6l-1.5 8L19 10h-6l.5-8Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5 14 9l6.5 2-6.5 2-2 6.5-2-6.5L3.5 11 10 9l2-6.5Z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6.3"/><path d="M20 3.5V11h-7.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8.5L2 8.5 21 3Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l2.6-2.6a4.5 4.5 0 0 0-6.4-6.4L11.4 5.7"/><path d="M14 10.5a4.5 4.5 0 0 0-6.4 0l-2.6 2.6a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.4 1.5a12 12 0 0 0 5.9 5.9L16 13l5 2v3a3 3 0 0 1-3 3A17 17 0 0 1 3 6a3 3 0 0 1 3-3Z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5S20 17 20 21"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c.8 1.4 2 2.2 3.5 2.2s2.7-.8 3.5-2.2M9 9.5h.01M15 9.5h.01"/></symbol>
+    <symbol id="i-frown" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 16c.8-1.4 2-2.2 3.5-2.2s2.7.8 3.5 2.2M9 9.5h.01M15 9.5h.01"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4M16 8l4 4-4 4M20 12H9"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+  <aside class="rail">
+    <div class="rail-brand">
+      <a class="brand-main" data-nav="pulse">
+        <span class="mark"><svg><use href="#i-pulse"/></svg></span>
+        <span class="brand-copy">
+          <span class="brand-name">ПУЛЬС</span>
+          <span class="brand-sub">контроль линий</span>
+        </span>
+      </a>
+      <a class="version-link" data-nav="version" id="version-link" title="Версия и сборка">v1.0.0</a>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a data-nav="pulse"><svg><use href="#i-pulse"/></svg><span>Пульс</span></a>
+      <a data-nav="chats"><svg><use href="#i-chat"/></svg><span>Чаты</span><span class="nav-badge" id="nav-chats" hidden>0</span></a>
+      <a data-nav="people"><svg><use href="#i-users"/></svg><span>Люди</span></a>
+      <a data-nav="promises"><svg><use href="#i-check-circle"/></svg><span>Обещания</span><span class="nav-badge" id="nav-promises" hidden>0</span></a>
+      <a data-nav="report"><svg><use href="#i-doc"/></svg><span>Отчёт</span></a>
+      <a data-nav="settings"><svg><use href="#i-gear"/></svg><span>Настройки</span></a>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="connect-card" id="connect-card">
+        <div class="connect-top"><span class="dot live"></span><span>Битрикс24</span><b id="connect-mode">демо</b></div>
+        <div class="connect-sub" id="connect-domain">buh-osnova.bitrix24.ru</div>
+        <div class="connect-sub">Наблюдение · 3 линии</div>
+      </div>
+      <button class="rail-link" data-action="reset-demo"><svg><use href="#i-refresh"/></svg>Сбросить демо</button>
+      <a class="rail-link" href="/api/docs" target="_blank" rel="noopener"><svg><use href="#i-link"/></svg>API платформы</a>
+      <div class="rail-user">
+        <span class="avatar sm dark" id="owner-initials">СИ</span>
+        <span><b id="owner-name">Сергей Иванов</b><small id="owner-role">Собственник</small></span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="crumbs">
+        <span class="crumb-muted">ПУЛЬС</span>
+        <span class="slash">/</span>
+        <span id="page-title">Пульс</span>
+        <a class="version-chip" data-nav="version" id="version-chip" title="Версия и сборка">v1.0.0</a>
+      </div>
+      <div class="top-actions">
+        <span class="live-pill"><span class="dot live"></span>Наблюдение включено</span>
+        <span class="demo-pill" id="demo-pill">ДЕМО</span>
+        <button class="icon-btn" data-action="reload" title="Обновить данные"><svg><use href="#i-refresh"/></svg></button>
+      </div>
+    </header>
+
+    <main class="view" id="view">
+      <div class="loading"><span class="spinner"></span>Собираем пульс открытых линий…</div>
+    </main>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden>
+  <div class="drawer-head">
+    <div id="drawer-title" class="drawer-title">—</div>
+    <button class="icon-btn" data-action="close-drawer"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" id="modal-card"></div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="/assets/app.js?v=11"></script>
+</body>
+</html>

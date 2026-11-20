@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.db
+data/*.log
+data/*.pid
+data/ca_bundle.pem
+.env
+.openchamber/
+dist/

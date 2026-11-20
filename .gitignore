@@ -8,4 +8,5 @@ data/*.pid
 data/ca_bundle.pem
 .env
 .openchamber/
+.netlify/
 dist/
